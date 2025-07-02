@@ -21,10 +21,7 @@ const PORT = process.env.PORT || 3001;
 app.use(helmet());
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? [
-        'https://your-netlify-url.netlify.app',
-        /https:\/\/.*\.netlify\.app$/
-      ] 
+    ? ['https://your-frontend-domain.com'] 
     : [
         'http://localhost:5173', 
         'http://localhost:5174', 
@@ -33,8 +30,13 @@ app.use(cors({
         'http://192.168.1.34:5175',
         'http://192.168.1.34:4173',
         'http://192.168.1.34:3001',
-        /https:\/\/.*\.ngrok\.io$/,
-        /https:\/\/.*\.ngrok-free\.app$/
+        'http://192.168.1.21:5175',
+        'http://192.168.1.21:3001',
+        'http://192.168.43.237:5175',
+         'http://192.168.43.237:3001',
+          'http://172.20.10.6:5175',
+           'http://172.20.10.6:3001',
+           'http://172.20.10.6:4173',
       ],
   credentials: true
 }));
