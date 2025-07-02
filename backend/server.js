@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import { connectDatabase, initializeDatabase } from './config/database.js';
 import authRoutes from './routes/auth.js';
 import clientRoutes from './routes/clients.js';
+import clientProfileRoutes from './routes/clientProfile.js';
 import stationRoutes from './routes/stations.js';
 import reservationRoutes from './routes/reservations.js';
 import sessionRoutes from './routes/sessions.js';
@@ -55,6 +56,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/clients', clientRoutes);
+app.use('/api/client', clientProfileRoutes); // Routes pour les clients authentifiés
 app.use('/api/stations', stationRoutes);
 app.use('/api/reservations', reservationRoutes); // Unified reservations (admin + client)
 app.use('/api/sessions', sessionRoutes);
